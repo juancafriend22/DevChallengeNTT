@@ -13,6 +13,7 @@ public class ClienteEntityMapper {
         entity.setNombre(dto.getNombre());
         entity.setGenero(dto.getGenero());
         entity.setEdad(dto.getEdad());
+        entity.setClienteId(dto.getClienteId());
         entity.setIdentificacion(dto.getIdentificacion());
         entity.setDireccion(dto.getIdentificacion());
         entity.setTelefono(dto.getTelefono());

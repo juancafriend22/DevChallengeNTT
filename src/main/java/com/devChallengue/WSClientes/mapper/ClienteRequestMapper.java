@@ -8,6 +8,7 @@ un objeto intermedio (ClienteDTO)*/
 public class ClienteRequestMapper {
     public static ClienteDTO toClienteDTO(ClienteRequestDTO request){
       ClienteDTO dto = new ClienteDTO();
+      dto.setClienteId(request.getClienteId());
       dto.setNombre(request.getNombre());
       dto.setGenero(request.getGenero());
       dto.setEdad(request.getEdad());

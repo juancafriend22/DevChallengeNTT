@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 public class ClienteDTO {
     private Long id; //Campo que hereda de persona
+    private String clienteId;
     private String nombre;
     private String genero;
     private int edad;
