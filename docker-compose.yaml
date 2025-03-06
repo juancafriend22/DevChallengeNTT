@@ -1,0 +1,37 @@
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: banco
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  microservicio-clientes:
+    build: ../WSClientes
+    container_name: clientes-servicio
+    environment:
+      - TZ=America/Lima
+    ports:
+      - "8081:8080"  # Exponer puerto 8081 en localhost
+    depends_on:
+      - mysql-db
+
+  microservicio-cuentas:
+    build: ../WSCuentas
+    container_name: cuentas-servicio
+    environment:
+      - TZ=America/Lima
+    ports:
+      - "8082:8080"  # Exponer puerto 8082 en localhost
+    depends_on:
+      - mysql-db
+
+volumes:
+  mysql_data:
