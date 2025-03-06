@@ -13,7 +13,7 @@ public class ClienteRequestMapper {
       dto.setGenero(request.getGenero());
       dto.setEdad(request.getEdad());
       dto.setIdentificacion(request.getIdentificacion());
-      dto.setDireccion(request.getIdentificacion());
+      dto.setDireccion(request.getDireccion());
       dto.setTelefono(request.getTelefono());
       dto.setContrasena(request.getContrasena());
       dto.setEstado(request.isEstado());

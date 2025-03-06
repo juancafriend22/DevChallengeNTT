@@ -15,7 +15,7 @@ public class ClienteEntityMapper {
         entity.setEdad(dto.getEdad());
         entity.setClienteId(dto.getClienteId());
         entity.setIdentificacion(dto.getIdentificacion());
-        entity.setDireccion(dto.getIdentificacion());
+        entity.setDireccion(dto.getDireccion());
         entity.setTelefono(dto.getTelefono());
         entity.setContrasena(dto.getContrasena());
         entity.setEstado(dto.isEstado());
@@ -29,7 +29,7 @@ public class ClienteEntityMapper {
         dto.setGenero(entity.getGenero());
         dto.setEdad(entity.getEdad());
         dto.setIdentificacion(entity.getIdentificacion());
-        dto.setDireccion(entity.getIdentificacion());
+        dto.setDireccion(entity.getDireccion());
         dto.setTelefono(entity.getTelefono());
         dto.setContrasena(entity.getContrasena());
         dto.setEstado(entity.getEstado());
