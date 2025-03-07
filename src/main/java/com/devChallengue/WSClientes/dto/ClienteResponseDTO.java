@@ -1,13 +1,12 @@
 package com.devChallengue.WSClientes.dto;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class ClienteDTO {
-    private Long id; //Campo que hereda de persona
+public class ClienteResponseDTO {
+    private Long id; //Campo que hereda de persona si le quito de aqui no hay respuesta en el json del campo id
     private String nombre;
     private String genero;
     private int edad;

@@ -1,13 +1,13 @@
 package com.devChallengue.WSClientes.mapper;
 
-import com.devChallengue.WSClientes.dto.ClienteDTO;
+import com.devChallengue.WSClientes.dto.ClienteResponseDTO;
 import com.devChallengue.WSClientes.dto.ClienteRequestDTO;
 
 /*Aqui se converte un objeto recibido en la peticion (ClienteRequestDTO) a
 un objeto intermedio (ClienteDTO)*/
 public class ClienteRequestMapper {
-    public static ClienteDTO toClienteDTO(ClienteRequestDTO request){
-      ClienteDTO dto = new ClienteDTO();
+    public static ClienteResponseDTO toClienteDTO(ClienteRequestDTO request){
+      ClienteResponseDTO dto = new ClienteResponseDTO();
       dto.setClienteId(request.getClienteId());
       dto.setNombre(request.getNombre());
       dto.setGenero(request.getGenero());

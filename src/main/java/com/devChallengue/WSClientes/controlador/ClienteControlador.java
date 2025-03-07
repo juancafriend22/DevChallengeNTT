@@ -1,16 +1,14 @@
 package com.devChallengue.WSClientes.controlador;
 
-import com.devChallengue.WSClientes.dto.ClienteDTO;
+import com.devChallengue.WSClientes.dto.ClienteResponseDTO;
 import com.devChallengue.WSClientes.dto.ClienteRequestDTO;
 import com.devChallengue.WSClientes.mapper.ClienteRequestMapper;
-import com.devChallengue.WSClientes.modelo.Cliente;
 import com.devChallengue.WSClientes.servicio.ClienteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/clientes")
@@ -24,24 +22,24 @@ public class ClienteControlador {
 
     // POST: Crear cliente
     @PostMapping
-    public ResponseEntity<ClienteDTO> crearCliente(@RequestBody ClienteRequestDTO clienteRequestDTO) {
+    public ResponseEntity<ClienteResponseDTO> crearCliente(@RequestBody ClienteRequestDTO clienteRequestDTO) {
         // Transformar ClienteRequestDTO a ClienteDTO
-        ClienteDTO clienteDTO = ClienteRequestMapper.toClienteDTO(clienteRequestDTO);
-        ClienteDTO clienteCreado = clienteServicio.crearCliente(clienteDTO);
+        ClienteResponseDTO clienteResponseDTO = ClienteRequestMapper.toClienteDTO(clienteRequestDTO);
+        ClienteResponseDTO clienteCreado = clienteServicio.crearCliente(clienteResponseDTO);
         return ResponseEntity.ok(clienteCreado);
     }
 
     // GET: Obtener un cliente por id
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteDTO> obtenerCliente(@PathVariable Long id) {
-        ClienteDTO clienteDTO = clienteServicio.obtenerClientePorId(id);
-        return ResponseEntity.ok(clienteDTO);
+    public ResponseEntity<ClienteResponseDTO> obtenerCliente(@PathVariable Long id) {
+        ClienteResponseDTO clienteResponseDTO = clienteServicio.obtenerClientePorId(id);
+        return ResponseEntity.ok(clienteResponseDTO);
     }
 
     // GET: Obtener lista de todos los clientes
     @GetMapping
-    public ResponseEntity<List<ClienteDTO>> obtenerClientes() {
-        List<ClienteDTO> clientesDTO = clienteServicio.obtenerTodosClientes();
+    public ResponseEntity<List<ClienteResponseDTO>> obtenerClientes() {
+        List<ClienteResponseDTO> clientesDTO = clienteServicio.obtenerTodosClientes();
         return ResponseEntity.ok(clientesDTO);
     }
 

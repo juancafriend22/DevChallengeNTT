@@ -1,13 +1,15 @@
 package com.devChallengue.WSClientes.mapper;
 
-import com.devChallengue.WSClientes.dto.ClienteDTO;
+import com.devChallengue.WSClientes.dto.ClienteResponseDTO;
 import com.devChallengue.WSClientes.modelo.Cliente;
 
-/*Aqui se realiza la conversión entre el objeto intermedio Clienteentity
-y la entidad que se persiste en la base de datos (Cliente)
+/*Request: El cliente envía un objeto (por ejemplo, ClienteRequestDTO) con los datos necesarios.
+Transformación: Ese objeto se mapea a la entidad (Cliente) mediante un mapper.
+Persistencia: Se guarda la entidad en la base de datos.
+Response: Se mapea la entidad persistida a un ClienteResponseDTO y se devuelve como respuesta.
  */
 public class ClienteEntityMapper {
-    public static Cliente toEntity(ClienteDTO dto){
+    public static Cliente toEntity(ClienteResponseDTO dto){
         Cliente entity = new Cliente();
         entity.setId(dto.getId());
         entity.setNombre(dto.getNombre());
@@ -22,12 +24,13 @@ public class ClienteEntityMapper {
         return entity;
     }
 
-    public static ClienteDTO toDTO(Cliente entity){
-        ClienteDTO dto = new ClienteDTO();
+    public static ClienteResponseDTO toDTO(Cliente entity){
+        ClienteResponseDTO dto = new ClienteResponseDTO();
         dto.setId(entity.getId());
         dto.setNombre(entity.getNombre());
         dto.setGenero(entity.getGenero());
         dto.setEdad(entity.getEdad());
+        dto.setClienteId(entity.getClienteId());
         dto.setIdentificacion(entity.getIdentificacion());
         dto.setDireccion(entity.getDireccion());
         dto.setTelefono(entity.getTelefono());
