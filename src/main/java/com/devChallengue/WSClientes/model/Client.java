@@ -1,4 +1,4 @@
-package com.devChallengue.WSClientes.modelo;
+package com.devChallengue.WSClientes.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "clientes")
 
-public class Cliente extends Persona{
+public class Client extends Person {
 
     @Column(unique = true)
     private String clienteId;

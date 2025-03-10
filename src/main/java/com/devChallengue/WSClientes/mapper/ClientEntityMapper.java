@@ -1,16 +1,16 @@
 package com.devChallengue.WSClientes.mapper;
 
-import com.devChallengue.WSClientes.dto.ClienteResponseDTO;
-import com.devChallengue.WSClientes.modelo.Cliente;
+import com.devChallengue.WSClientes.dto.ClientDTO;
+import com.devChallengue.WSClientes.model.Client;
 
 /*Request: El cliente envía un objeto (por ejemplo, ClienteRequestDTO) con los datos necesarios.
 Transformación: Ese objeto se mapea a la entidad (Cliente) mediante un mapper.
 Persistencia: Se guarda la entidad en la base de datos.
 Response: Se mapea la entidad persistida a un ClienteResponseDTO y se devuelve como respuesta.
  */
-public class ClienteEntityMapper {
-    public static Cliente toEntity(ClienteResponseDTO dto){
-        Cliente entity = new Cliente();
+public class ClientEntityMapper {
+    public static Client toEntity(ClientDTO dto){
+        Client entity = new Client();
         entity.setId(dto.getId());
         entity.setNombre(dto.getNombre());
         entity.setGenero(dto.getGenero());
@@ -24,8 +24,8 @@ public class ClienteEntityMapper {
         return entity;
     }
 
-    public static ClienteResponseDTO toDTO(Cliente entity){
-        ClienteResponseDTO dto = new ClienteResponseDTO();
+    public static ClientDTO toDTO(Client entity){
+        ClientDTO dto = new ClientDTO();
         dto.setId(entity.getId());
         dto.setNombre(entity.getNombre());
         dto.setGenero(entity.getGenero());

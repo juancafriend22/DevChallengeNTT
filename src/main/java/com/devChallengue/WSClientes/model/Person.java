@@ -1,4 +1,4 @@
-package com.devChallengue.WSClientes.modelo;
+package com.devChallengue.WSClientes.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "personas")
 @Inheritance(strategy = InheritanceType.JOINED) //Herencia
-public class Persona {
+public class Person {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;

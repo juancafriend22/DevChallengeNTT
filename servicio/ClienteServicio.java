@@ -1,9 +1,9 @@
-package com.devChallengue.WSClientes.servicio;
+package com.devChallengue.WSClientes.service;
 
 import com.devChallengue.WSClientes.dto.ClienteDTO;
 import com.devChallengue.WSClientes.mapper.ClienteEntityMapper;
-import com.devChallengue.WSClientes.modelo.Cliente;
-import com.devChallengue.WSClientes.repositorio.ClienteRepositorio;
+import com.devChallengue.WSClientes.model.Cliente;
+import com.devChallengue.WSClientes.repository.ClienteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

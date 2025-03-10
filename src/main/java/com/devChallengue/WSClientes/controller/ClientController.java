@@ -1,9 +1,9 @@
-package com.devChallengue.WSClientes.controlador;
+package com.devChallengue.WSClientes.controller;
 
-import com.devChallengue.WSClientes.dto.ClienteResponseDTO;
-import com.devChallengue.WSClientes.dto.ClienteRequestDTO;
-import com.devChallengue.WSClientes.mapper.ClienteRequestMapper;
-import com.devChallengue.WSClientes.servicio.ClienteServicio;
+import com.devChallengue.WSClientes.dto.ClientDTO;
+import com.devChallengue.WSClientes.dto.ClientRequestDTO;
+import com.devChallengue.WSClientes.mapper.ClientRequestMapper;
+import com.devChallengue.WSClientes.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,41 +12,41 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/clientes")
-public class ClienteControlador {
+public class ClientController {
     @Autowired
-    private final ClienteServicio clienteServicio;
+    private final ClientService clientService;
 
-    public ClienteControlador(ClienteServicio clienteServicio) {
-        this.clienteServicio = clienteServicio;
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
       }
 
     // POST: Crear cliente
     @PostMapping
-    public ResponseEntity<ClienteResponseDTO> crearCliente(@RequestBody ClienteRequestDTO clienteRequestDTO) {
+    public ResponseEntity<ClientDTO> crearCliente(@RequestBody ClientRequestDTO clientRequestDTO) {
         // Transformar ClienteRequestDTO a ClienteDTO
-        ClienteResponseDTO clienteResponseDTO = ClienteRequestMapper.toClienteDTO(clienteRequestDTO);
-        ClienteResponseDTO clienteCreado = clienteServicio.crearCliente(clienteResponseDTO);
+        ClientDTO clientDTO = ClientRequestMapper.toClienteDTO(clientRequestDTO);
+        ClientDTO clienteCreado = clientService.crearCliente(clientDTO);
         return ResponseEntity.ok(clienteCreado);
     }
 
     // GET: Obtener un cliente por id
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteResponseDTO> obtenerCliente(@PathVariable Long id) {
-        ClienteResponseDTO clienteResponseDTO = clienteServicio.obtenerClientePorId(id);
-        return ResponseEntity.ok(clienteResponseDTO);
+    public ResponseEntity<ClientDTO> obtenerCliente(@PathVariable Long id) {
+        ClientDTO clientDTO = clientService.obtenerClientePorId(id);
+        return ResponseEntity.ok(clientDTO);
     }
 
     // GET: Obtener lista de todos los clientes
     @GetMapping
-    public ResponseEntity<List<ClienteResponseDTO>> obtenerClientes() {
-        List<ClienteResponseDTO> clientesDTO = clienteServicio.obtenerTodosClientes();
+    public ResponseEntity<List<ClientDTO>> obtenerClientes() {
+        List<ClientDTO> clientesDTO = clientService.obtenerTodosClientes();
         return ResponseEntity.ok(clientesDTO);
     }
 
     // DELETE: Eliminar un cliente por id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarCliente(@PathVariable Long id) {
-        clienteServicio.eliminarCliente(id);
+        clientService.eliminarCliente(id);
         return ResponseEntity.noContent().build();
     }
 

@@ -1,7 +1,7 @@
 package com.devChallengue.WSClientes.mapper;
 
 import com.devChallengue.WSClientes.dto.ClienteDTO;
-import com.devChallengue.WSClientes.modelo.Cliente;
+import com.devChallengue.WSClientes.model.Cliente;
 
 /*Aqui se realiza la conversión entre el objeto intermedio Clienteentity
 y la entidad que se persiste en la base de datos (Cliente)

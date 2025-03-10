@@ -1,10 +1,10 @@
-package com.devChallengue.WSClientes.controlador;
+package com.devChallengue.WSClientes.controller;
 
 import com.devChallengue.WSClientes.dto.ClienteDTO;
 import com.devChallengue.WSClientes.dto.ClienteRequestDTO;
 import com.devChallengue.WSClientes.mapper.ClienteRequestMapper;
-import com.devChallengue.WSClientes.modelo.Cliente;
-import com.devChallengue.WSClientes.servicio.ClienteServicio;
+import com.devChallengue.WSClientes.model.Cliente;
+import com.devChallengue.WSClientes.service.ClienteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

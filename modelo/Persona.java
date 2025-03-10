@@ -1,4 +1,4 @@
-package com.devChallengue.WSClientes.modelo;
+package com.devChallengue.WSClientes.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

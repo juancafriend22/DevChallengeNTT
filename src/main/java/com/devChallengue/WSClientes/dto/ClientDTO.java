@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ClienteResponseDTO {
+public class ClientDTO {
     private Long id; //Campo que hereda de persona si le quito de aqui no hay respuesta en el json del campo id
     private String nombre;
     private String genero;
