@@ -8,11 +8,11 @@ import lombok.Setter;
 public class ClientRequestDTO {
     private String nombre;
     private String genero;
-    private int edad;
+    private Integer edad;
     private String clienteId;
     private String identificacion;
     private String direccion;
     private String telefono;
     private String contrasena;
-    private boolean estado;
+    private Boolean estado;
 }

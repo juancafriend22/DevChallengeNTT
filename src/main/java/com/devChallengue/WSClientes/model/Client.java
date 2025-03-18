@@ -11,7 +11,6 @@ import lombok.Setter;
 
 public class Client extends Person {
 
-    @Column(unique = true)
     private String clienteId;
 
     private String contrasena;

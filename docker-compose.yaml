@@ -12,10 +12,14 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - my_network
 
   microservicio-clientes:
     build: ../WSClientes
     container_name: clientes-servicio
+    networks:
+      - my_network
     environment:
       - TZ=America/Lima
     ports:
@@ -26,12 +30,18 @@ services:
   microservicio-cuentas:
     build: ../WSCuentas
     container_name: cuentas-servicio
+    networks:
+      - my_network
     environment:
       - TZ=America/Lima
+      - WS_CLIENTES_URL=http://microservicio-clientes:8080  # URL del servicio WSClientes
     ports:
       - "8082:8080"  # Exponer puerto 8082 en localhost
     depends_on:
       - mysql-db
+networks:
+  my_network:
+    driver: bridge
 
 volumes:
   mysql_data:

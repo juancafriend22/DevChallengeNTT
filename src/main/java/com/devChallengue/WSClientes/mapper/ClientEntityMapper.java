@@ -20,7 +20,7 @@ public class ClientEntityMapper {
         entity.setDireccion(dto.getDireccion());
         entity.setTelefono(dto.getTelefono());
         entity.setContrasena(dto.getContrasena());
-        entity.setEstado(dto.isEstado());
+        entity.setEstado(dto.getEstado());
         return entity;
     }
 
@@ -37,5 +37,6 @@ public class ClientEntityMapper {
         dto.setContrasena(entity.getContrasena());
         dto.setEstado(entity.getEstado());
         return dto;
+
     }
 }

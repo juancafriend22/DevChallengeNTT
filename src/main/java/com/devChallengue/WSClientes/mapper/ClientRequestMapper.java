@@ -16,7 +16,7 @@ public class ClientRequestMapper {
       dto.setDireccion(request.getDireccion());
       dto.setTelefono(request.getTelefono());
       dto.setContrasena(request.getContrasena());
-      dto.setEstado(request.isEstado());
+      dto.setEstado(request.getEstado());
       return dto;
 
     }

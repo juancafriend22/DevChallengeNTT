@@ -15,7 +15,8 @@ public class Person {
 
     private String nombre;
     private String genero;
-    private int edad;
+    private Integer edad;
+    @Column(unique = true)
     private String identificacion;
     private String direccion;
     private String telefono;
