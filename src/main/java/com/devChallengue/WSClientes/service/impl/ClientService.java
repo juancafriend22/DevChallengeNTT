@@ -67,6 +67,7 @@ public class ClientService implements IClientService {
 
     @Override
     public ClientDTO actualizarCliente(Long id, ClientDTO cli) {
+        this.obtenerClientePorId(id);
         try{
             Client clienteExistente = ClientEntityMapper.toEntity(obtenerClientePorId(id));
                 clienteExistente.setEdad(cli.getEdad());
