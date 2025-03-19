@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS clientes (
 -- Tabla Cuentas
 CREATE TABLE IF NOT EXISTS cuentas (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    numero_cuenta VARCHAR(50) NOT NULL,
+    numero_cuenta VARCHAR(50) UNIQUE NOT NULL,
     tipo_cuenta VARCHAR(20) NOT NULL,
     saldo_inicial DECIMAL(10,2) NOT NULL,
     estado BOOLEAN NOT NULL,

@@ -7,6 +7,7 @@ import com.devChallengue.WSClientes.mapper.ClientEntityMapper;
 import com.devChallengue.WSClientes.model.Client;
 import com.devChallengue.WSClientes.repository.ClientRepository;
 import com.devChallengue.WSClientes.service.IClientService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ClientService implements IClientService {
-    @Autowired
-    private ClientRepository clientRepository;
+
+    private final ClientRepository clientRepository;
 
     // POST: Crear cliente
     @Override
@@ -85,16 +87,6 @@ public class ClientService implements IClientService {
 
     }
 
-    @Override
-    public ClientDTO buscarClienteId(String clienteId){
-
-        Client clientEntity = clientRepository.findByClienteId(clienteId);
-        if (clientEntity == null) {
-            throw new ClientCreationException("Error al buscar cliente en la base de datos.");
-        }
-        return ClientEntityMapper.toDTO(clientEntity);
-
-    }
 
 }
 

@@ -17,6 +17,4 @@ public interface IClientService {
 
     public ClientDTO actualizarCliente(Long id, ClientDTO cli);
 
-    public ClientDTO buscarClienteId(String clienteId);
-
 }

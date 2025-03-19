@@ -22,8 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientController {
 
-    @Autowired
-    private IClientService clientService;
+    private final IClientService clientService;
 
 
     @PostMapping
@@ -38,12 +37,6 @@ public class ClientController {
     public ResponseEntity<ClientDTO> obtenerCliente(@PathVariable Long id) {
         ClientDTO clientDTO = clientService.obtenerClientePorId(id);
         return ResponseEntity.ok(clientDTO);
-    }
-
-    @GetMapping("/buscar/{clienteId}")
-   public ResponseEntity<ClientDTO> obtenerClientePorClienteId(@PathVariable String clienteId) {
-        ClientDTO client = clientService.buscarClienteId(clienteId);
-        return client != null ? ResponseEntity.ok(client) : ResponseEntity.notFound().build();
     }
 
     @GetMapping

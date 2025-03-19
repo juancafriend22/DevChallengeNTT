@@ -10,7 +10,7 @@ import lombok.Setter;
 @Table(name = "clientes")
 
 public class Client extends Person {
-
+    @Column(unique = true)
     private String clienteId;
 
     private String contrasena;
